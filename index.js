@@ -37,9 +37,20 @@ class CoffeeShop {
   }
 
   dueAmount() {
+    let total = 0;
     console.log(this.orders);
 
-    const total = this.orders.forEach((item) => item);
+    this.orders.forEach((item) => {
+      for (const val of this.menu) {
+        // console.log(val);
+        if (val.name === item) {
+          console.log(val.price);
+          total += val.price;
+        }
+      }
+      // item;
+    });
+    console.log(total);
     // console.log(total);
   }
 
@@ -150,11 +161,11 @@ const ma = new CoffeeShop(
   []
 );
 
-// ma.addOrder("Hot Coffee");
-// ma.addOrder("Ice Cream");
-// ma.addOrder("Ice Cream");
-// ma.addOrder("Pan Cakes");
-// ma.addOrder("Hot");
+ma.addOrder("Hot Coffee");
+ma.addOrder("Ice Cream");
+ma.addOrder("Ice Cream");
+ma.addOrder("Pan Cakes");
+ma.addOrder("Hot");
 // console.log(ma);
 console.log(`--------------------`);
 // ma.fulfillOrder();
@@ -173,11 +184,14 @@ console.log(`--------------------`);
 
 console.log(`--------------------`);
 
-// ma.addOrder("hot cocoa");
+ma.addOrder("hot cocoa");
 
 ma.addOrder("Cinnamon Roll");
 ma.addOrder("Iced Coffee");
 ma.addOrder("Iced Coffee");
+// ma.addOrder("Cinnamon Roll");
+// ma.addOrder("Iced Coffee");
+// ma.addOrder("Iced Coffee");
 console.log(`--------------------`);
 // ma.listOrders(); //["cinnamon roll", "iced coffee"]
 console.log(`--------------------`);
@@ -190,7 +204,6 @@ console.log(`---------------------------`);
 
 // ma.listOrders();
 console.log(`---------------------------`);
-ma.dueAmount();
 
 console.log(`---------------------------`);
 // ma.cheapestItem();
@@ -198,3 +211,4 @@ console.log(`---------------------------`);
 console.log(`---------------------------`);
 // ma.drinksOnly();
 // ma.foodOnly();
+ma.dueAmount();
